@@ -146,6 +146,7 @@ $trans: .15s ease-in-out;
 	padding-top: 90px;
 	padding-bottom: 90px;
 	color: #222;
+	position: relative;
 	
 	&.selectionSocial {
 		margin-top: 90px;
@@ -154,6 +155,28 @@ $trans: .15s ease-in-out;
 	
 	&.selectionSurrounding {
 		background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+	}
+	
+	.submitBtn {
+		position: absolute;
+		right: 10%;
+		bottom: 10%;
+		
+		a {
+			line-height: 45px;
+			height: 45px;
+			display: block;
+			text-align: center;
+			min-width: 150px;
+			border-radius: 5px;
+			border-bottom: 3px solid rgba(0,0,0,.6);
+			background: rgba(0,0,0,.75);
+			color: #fff;
+			
+			&:hover {
+				border-bottom-width: 1px;
+			}
+		}
 	}
 	
 	.selectionGroup {
@@ -166,11 +189,13 @@ $trans: .15s ease-in-out;
 		.select {
 			width: 75%;
 			margin-left: 12.5%;
-			background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+			background: rgba(0,0,0,.75);
+			color: #fff;
 			border-radius: 100%;
 			position: relative;
 			overflow: hidden;
 			transition: color $trans background $trans;
+			z-index: 5;
 			
 			&:before, &:after {
 				content: "";
@@ -179,29 +204,28 @@ $trans: .15s ease-in-out;
 				bottom:0;
 				width: 50%;
 				z-index: 2;
-				opacity: .8;
 			}
 			
 			&:before {
-				background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
+				background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
 				left:-50%;
 				transition: left $trans;
 			}
 			
 			&:after {
-				background: $green;
+				background-image: linear-gradient(to bottom, #0ba360 0%, #4DEBBA 100%);
 				right:-50%;
 				transition: right $trans;
 			}
 			
 			
 			&.positive {
-				background: $green;
+				background-image: linear-gradient(to bottom, #0ba360 0%, #4DEBBA 100%);
 				color: #fff;
 			}
 			
 			&.negative {
-				background: $red;
+				background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
 				color: #fff;
 			}
 			
@@ -235,6 +259,16 @@ $trans: .15s ease-in-out;
 				}
 			}
 			
+			img {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 200%;
+				height: auto;
+				z-index: -1;
+				transform: translate(-50%, -50%);
+			}
+			
 			h3 {
 				position: absolute;
 				top: 50%;
@@ -242,6 +276,7 @@ $trans: .15s ease-in-out;
 				font-size: 18px;
 				transform: translatey(-50%);
 				z-index: 1;
+				color: #fff;
 				transition: top $trans;
 			}
 			
@@ -272,3 +307,28 @@ $trans: .15s ease-in-out;
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//footer CSS
+
+
