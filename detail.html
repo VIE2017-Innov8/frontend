@@ -32,7 +32,7 @@
 
 	<link rel="stylesheet" href="css/style.css">
 	<style type="text/css">
-		#map { width:100%; height: 250px; margin-bottom:25px; }
+		#map { width:100%; height: 560px; margin-bottom:25px; }
 		#address { margin: 5px; width: 100%; }
 	</style>
 
@@ -177,7 +177,7 @@
 							});
 
 							map.setCenter(results[0].geometry.location);
-							map.setZoom(13);
+							map.setZoom(15);
 
 							getPlacesNear(results[0].geometry.location)
 						} else {
