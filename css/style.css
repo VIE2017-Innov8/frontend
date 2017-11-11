@@ -42,8 +42,7 @@
         transform: translatey(-50%);
         width: 100%;
         padding: 8rem;
-        font-weight: 600;
-        letter-spacing: 1.5; }
+        font-weight: 600; }
   .mainWrapper .input {
     height: 62vh;
     transform: scale(0.8);
@@ -83,5 +82,117 @@
           transform: translatey(-50%);
           width: 100%;
           padding: 4rem; }
+
+.navbar {
+  background: linear-gradient(45deg, #023852 0%, #071930 100%); }
+
+.selectionWrapper {
+  padding-top: 90px;
+  padding-bottom: 90px;
+  color: #222;
+  position: relative; }
+  .selectionWrapper.selectionSocial {
+    margin-top: 90px;
+    background-image: linear-gradient(-15deg, #3b41c5 0%, #a981bb 49%, #ffc8a9 100%); }
+  .selectionWrapper.selectionSurrounding {
+    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%); }
+  .selectionWrapper .submitBtn {
+    position: absolute;
+    right: 10%;
+    bottom: 10%; }
+    .selectionWrapper .submitBtn a {
+      line-height: 45px;
+      height: 45px;
+      display: block;
+      text-align: center;
+      min-width: 150px;
+      border-radius: 5px;
+      border-bottom: 3px solid rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff; }
+      .selectionWrapper .submitBtn a:hover {
+        border-bottom-width: 1px; }
+  .selectionWrapper .selectionGroup h2 {
+    color: #fff;
+    margin-bottom: 45px;
+    text-transform: uppercase; }
+  .selectionWrapper .selectionGroup .select {
+    width: 75%;
+    margin-left: 12.5%;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    border-radius: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.15s ease-in-out background 0.15s ease-in-out;
+    z-index: 5; }
+    .selectionWrapper .selectionGroup .select:before, .selectionWrapper .selectionGroup .select:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      z-index: 2; }
+    .selectionWrapper .selectionGroup .select:before {
+      background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+      left: -50%;
+      transition: left 0.15s ease-in-out; }
+    .selectionWrapper .selectionGroup .select:after {
+      background-image: linear-gradient(to bottom, #0ba360 0%, #4DEBBA 100%);
+      right: -50%;
+      transition: right 0.15s ease-in-out; }
+    .selectionWrapper .selectionGroup .select.positive {
+      background-image: linear-gradient(to bottom, #0ba360 0%, #4DEBBA 100%);
+      color: #fff; }
+    .selectionWrapper .selectionGroup .select.negative {
+      background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+      color: #fff; }
+    .selectionWrapper .selectionGroup .select:hover:before {
+      left: 0%; }
+    .selectionWrapper .selectionGroup .select:hover:after {
+      right: 0%; }
+    .selectionWrapper .selectionGroup .select:hover.positive, .selectionWrapper .selectionGroup .select:hover.negative {
+      color: #222;
+      background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%); }
+    .selectionWrapper .selectionGroup .select:hover h3 {
+      top: 25%; }
+    .selectionWrapper .selectionGroup .select:hover .leftIcon {
+      left: 25%;
+      opacity: 1; }
+    .selectionWrapper .selectionGroup .select:hover .rightIcon {
+      left: 75%;
+      opacity: 1; }
+    .selectionWrapper .selectionGroup .select img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 200%;
+      height: auto;
+      z-index: -1;
+      transform: translate(-50%, -50%); }
+    .selectionWrapper .selectionGroup .select h3 {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      font-size: 18px;
+      transform: translatey(-50%);
+      z-index: 1;
+      color: #fff;
+      transition: top 0.15s ease-in-out; }
+    .selectionWrapper .selectionGroup .select .leftIcon, .selectionWrapper .selectionGroup .select .rightIcon {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(1.5);
+      color: #fff;
+      z-index: 3;
+      opacity: 0;
+      transition: left 0.15s ease-in-out translate 0.15s ease-in-out;
+      cursor: pointer; }
+      .selectionWrapper .selectionGroup .select .leftIcon:active, .selectionWrapper .selectionGroup .select .leftIcon:focus, .selectionWrapper .selectionGroup .select .rightIcon:active, .selectionWrapper .selectionGroup .select .rightIcon:focus {
+        transform: translate(-50%, -50%) scale(1.75); }
+    .selectionWrapper .selectionGroup .select .leftIcon {
+      left: 0%; }
+    .selectionWrapper .selectionGroup .select .rightIcon {
+      left: 100%; }
 
 /*# sourceMappingURL=style.css.map */
