@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dingen in de buurt</title>
+    <style type="text/css">
+        #map { position: absolute; top: 50px; bottom: 0; left: 0; right: 0; }
+        #address { margin: 5px; width: 100%; }
+    </style>
+</head>
+<body>
+
+<div id="overlay"><input id="address" placeholder="Vul hier je adres in" value="Oranjestraat 55, Alphen aan den Rijn"></div>
+<div id="map"></div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    var map, geocoder, placesService, addressMarker, distanceService, infoWindow;
+
+    var types = [
+        "bakery",
+        "bank",
+        "book_store",
+        "bus_station",
+        "cafe",
+        "church",
+        "clothing_store",
+        "dentist",
+        "doctor",
+        "gas_station",
+        "gym",
+        "pharmacy",
+        "restaurant",
+        "school",
+        "supermarket",
+        "university"
+    ];
+
+    function createMarker(place) {
+        var marker = new google.maps.Marker({
+            map: map,
+            position: place.geometry.location,
+            title: place.name,
+//            icon: place.icon
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+            console.log(place);
+            infoWindow.setContent(place.name);
+            infoWindow.open(map, this);
+        });
+    }
+
+    function getPlacesNear(position) {
+        placesService.nearbySearch(
+            {
+                location: position,
+//                radius: 5 * 1000,
+                types: types,
+                rankBy: google.maps.places.RankBy.DISTANCE
+            }, function (places, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    var destinations = [];
+                    for (var i = 0; i < places.length; i++) {
+//                        createMarker(results[i]);
+                        destinations.push(places[i].geometry.location);
+                    }
+                    distanceService.getDistanceMatrix(
+                        {
+                            origins: [position],
+                            destinations: destinations,
+                            travelMode: google.maps.TravelMode.WALKING
+                        },
+                        function (results, status) {
+                            if (status === google.maps.DistanceMatrixStatus.OK) {
+                                var closest = {};
+
+//                                console.log(results);
+                                for (var i = 0; i < places.length; i++) {
+                                    var d = results.rows[0].elements[i].distance;
+
+                                    if (places[i].types.indexOf("book_store") !== -1) {
+                                        console.log(places[i], d);
+                                    }
+
+                                    var placeIndex = -1;
+                                    for (var j = 0; j < places[i].types.length && placeIndex === -1; j += 1) {
+                                        placeIndex = types.indexOf(places[i].types[j]);
+                                    }
+
+                                    if (placeIndex === -1) {
+                                        continue;
+                                    }
+
+                                    if (!closest[types[placeIndex]] || d.value < closest[types[placeIndex]].distance.value) {
+                                        closest[types[placeIndex]] = {
+                                            distance: d,
+                                            place: places[i]
+                                        };
+                                    }
+                                }
+
+                                for (var k in closest) {
+                                    console.log(k, closest[k].place.name, closest[k].distance.text);
+                                }
+                            }
+                        }
+                    );
+                }
+            }
+        );
+    }
+
+    function updateAddress(address) {
+        geocoder.geocode({ "address": address }, function (results, status) {
+            if (status === google.maps.GeocoderStatus.OK) {
+//                if (addressMarker) {
+//                    addressMarker.remove();
+//                }
+                addressMarker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location,
+                    title: "Jouw Nieuwe Huis"
+                });
+
+                map.setCenter(results[0].geometry.location);
+                map.setZoom(11);
+
+                getPlacesNear(results[0].geometry.location)
+            } else {
+                console.error("Unable to GeoCode " + store.address + " " + status);
+            }
+        });
+
+    }
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById("map"),
+            { center: new google.maps.LatLng(52, 5), zoom: 7 }
+        );
+        geocoder = new google.maps.Geocoder();
+        placesService = new google.maps.places.PlacesService(map);
+        distanceService = new google.maps.DistanceMatrixService(map);
+        infoWindow = new google.maps.InfoWindow();
+    }
+
+    window.addEventListener("DOMContentLoaded", function () {
+        var address = document.getElementById("address");
+        address.addEventListener("change", function () {
+            updateAddress(this.value);
+        });
+        address.addEventListener("keyup", function (e) {
+            if (e.keyCode === 13) {
+                updateAddress(this.value);
+            }
+        });
+        updateAddress(address.value);
+    });
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initMap&key=AIzaSyBam1_2VvNzbCwey6s1DlURD89EHpUcn2k" type="text/javascript"></script>
+
+</body>
+</html>
