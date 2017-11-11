@@ -1,0 +1,92 @@
+$darkBlue: #071930;
+$blue: #023852;
+$green: #03A694;
+$orange: #F24738;
+$red: #851934;
+
+
+$trans: .15s ease-in-out;
+
+
+.mainWrapper {
+	background: $darkBlue;
+	color: #fff;
+	font-family: 'Source Sans Pro', sans-serif;
+	
+	.progress {
+		background: $blue;
+		
+		.progress-bar {
+			background: $green;
+		}
+	}
+	
+	header {
+		height: 38vh;
+		background: $red;
+		text-align: center;
+		display: block;
+		position: relative;
+		
+		h1 {
+			position: absolute;;
+			top: 50%;
+			transform: translatey(-50%);
+			width: 100%;
+			padding: 4rem;
+		}
+	}
+	
+	section {
+		height: 62vh;
+		
+		.answerGroup {
+			height: 100%;
+			
+			.answer {
+				display: block;
+				position: relative;
+				vertical-align: middle;
+				text-align: center;
+				height: 100%;
+				overflow: hidden;
+				
+				&:before {
+					position: absolute;;
+					content: "";
+					display: block;
+					opacity: 0;
+					background: $blue;
+					height:100%;
+					width: 100%;
+					transform: rotate(5deg) scale(.80);
+					transition: transform $trans, opacity $trans;
+				}
+				
+				&:hover {
+					&:before {
+						opacity: 1;
+						transform: rotate(0deg) scale(1);
+					}
+				}
+				
+				&.clicked {
+					&:before {
+						&:before {
+							opacity: 1;
+							transform: rotate(0deg) scale(1);
+						}
+					}
+				}
+				
+				h2 {
+					position: absolute;;
+					top: 50%;
+					transform: translatey(-50%);
+					width: 100%;
+					padding: 4rem;
+				}
+			}
+		}
+	}
+}
