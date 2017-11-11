@@ -241,14 +241,16 @@
       .results .items .item .content ul li {
         list-style: none; }
         .results .items .item .content ul li.warning:before {
-          color: #851934; }
+          color: #F24738; }
+        .results .items .item .content ul li.warning .highlight {
+          color: #F24738; }
         .results .items .item .content ul li:before {
           content: "\E87F";
           font-family: linearicons-free;
           margin-right: 15px;
           color: #03A694; }
     .results .items .item .content .highlight {
-      color: #F24738; }
+      color: #03A694; }
   .results .items .item .maps {
     width: 40%;
     float: left; }
@@ -278,6 +280,9 @@ header {
 
 .detail p {
   display: block; }
+.detail .whatsappShare {
+  color: #03A694;
+  text-decoration: none; }
 .detail .keurBtn {
   background: #03A694;
   border-bottom: 3px solid rgba(0, 0, 0, 0.75);
@@ -300,14 +305,16 @@ header {
   .detail ul li {
     list-style: none; }
     .detail ul li.warning:before {
-      color: #851934; }
+      color: #F24738; }
+    .detail ul li.warning .highlight {
+      color: #F24738; }
     .detail ul li:before {
       content: "\E87F";
       font-family: linearicons-free;
       margin-right: 15px;
       color: #03A694; }
 .detail .highlight {
-  color: #F24738; }
+  color: #03A694; }
 .detail .makelaars {
   padding: 15px; }
   .detail .makelaars li {
