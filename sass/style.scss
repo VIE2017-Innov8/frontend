@@ -222,11 +222,19 @@ $trans: .15s ease-in-out;
 			&.positive {
 				background-image: linear-gradient(to bottom, #0ba360 0%, #4DEBBA 100%);
 				color: #fff;
+				
+				img {
+					opacity: 0;
+				}
 			}
 			
 			&.negative {
 				background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
 				color: #fff;
+				
+				img {
+					opacity: 0;
+				}
 			}
 			
 			&:hover {
@@ -240,7 +248,7 @@ $trans: .15s ease-in-out;
 				
 				&.positive, &.negative {
 					color: #222;
-					background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+					background: rgba(0,0,0,.75);
 				}
 				
 				h3 {

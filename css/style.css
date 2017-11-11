@@ -144,16 +144,20 @@
     .selectionWrapper .selectionGroup .select.positive {
       background-image: linear-gradient(to bottom, #0ba360 0%, #4DEBBA 100%);
       color: #fff; }
+      .selectionWrapper .selectionGroup .select.positive img {
+        opacity: 0; }
     .selectionWrapper .selectionGroup .select.negative {
       background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
       color: #fff; }
+      .selectionWrapper .selectionGroup .select.negative img {
+        opacity: 0; }
     .selectionWrapper .selectionGroup .select:hover:before {
       left: 0%; }
     .selectionWrapper .selectionGroup .select:hover:after {
       right: 0%; }
     .selectionWrapper .selectionGroup .select:hover.positive, .selectionWrapper .selectionGroup .select:hover.negative {
       color: #222;
-      background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%); }
+      background: rgba(0, 0, 0, 0.75); }
     .selectionWrapper .selectionGroup .select:hover h3 {
       top: 25%; }
     .selectionWrapper .selectionGroup .select:hover .leftIcon {
