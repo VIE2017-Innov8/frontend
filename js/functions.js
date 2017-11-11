@@ -124,6 +124,8 @@ function squareThis (element, ratio, minLimit)
 
 squareThis('.select');
 
+squareThis('.imgHolder');
+
 $(".leftIcon").click(function(){
 	$(this).parent(".select").removeClass("positive");
 	if ($(this).parent(".select").hasClass("negative")) {
