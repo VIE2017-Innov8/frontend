@@ -31,7 +31,10 @@
 	<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
 	
 	<link rel="stylesheet" href="css/style.css">
-
+	<style type="text/css">
+		#map { width:100%; height: 250px; margin-bottom:25px; }
+		#address { margin: 5px; width: 100%; }
+	</style>
 
 
 </head>
@@ -64,13 +67,20 @@
 </nav>
 
 <!-- Page Content -->
-<div class="row selectionWrapper selectionSocial resultsOfFilter">
+<div class="row selectionWrapper selectionSocial detailPage">
 	<div class="container selectionGroup">
 		<h2 class=" text-center">
 			2377 DS, 13a
 		</h2>
 	</div>
 </div>
+
+
+<header>
+	<div class="imgHolderHeader">
+		<img src="https://images.unsplash.com/photo-1490197415175-074fd86b1fcc?auto=format&fit=crop&w=1353&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D">
+	</div>
+</header>
 
 <div class="container detail">
 	<div class="row">
@@ -81,84 +91,207 @@
 				<li>3 <span class="highlight">station</span> in de buurt</li>
 				<li class="warning">15 <span class="highlight">cafe's</span> in de buurt</li>
 			</ul>
+			
+			<h3>Wij adviseren dit huis voor u</h3>
+			<h6 class="warning">Dit is nog niet gekeurd</h6>
+			<p>
+				Om een goede aankoop te maken is het verstandig om een keuring te laten doen!
+			</p>
+			<a href="https://perfectkeur.nl/" class="keurBtn">Nu keuren door perfectkeur</a>
+			<h4>Makelaar</h4>
+			<p>
+				Deze makelaars kunnen u bijstaan in het kopen van dit huis.
+			</p>
+			<ul class="makelaars">
+				<li>Q Makelaars Zwijndrecht</li>
+				<li>Bremmer Makelaars</li>
+				<li>De Mooij NVM Makelaardij</li>
+				<li class="advised" data-toggle="tooltip" data-placement="top" title="Wij adviseren deze bij ons bekende makelaar"><a href="https://www.namaco.nl/makelaar/drechtsteden-6">Nationaal Makelaars Collectief</a></li>
+				<li>Vijfvinkel Trossèl Makelaars</li>
+			</ul>
 		</div>
 		<div class="col-9 results">
-			<div class="items">
-				<div class="item">
-					<div class="imgHolder">
-						<img src="https://images.unsplash.com/photo-1502291457923-c99895bd976e?auto=format&fit=crop&w=1350&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D">
-					</div>
-					<div class="content">
-						<div class="rating">
-							<span> dit thuis past </span>
-							<span class="lnr lnr-star"></span><span class="lnr lnr-star"></span><span class="lnr lnr-star"></span><span class="lnr lnr-star"></span><span class="lnr lnr-star-half"></span>
-							<span> goed bij u!</span>
-						</div>
-						<h3 class="title">
-							2377 DS, 13a
-						</h3>
-						<ul>
-							<li>2 <span class="highlight">scholen</span> in de buurt</li>
-							<li>4 <span class="highlight">kerken</span> in de buurt</li>
-							<li>1 <span class="highlight">station</span> in de buurt</li>
-							<li>geen <span class="highlight">cafe's</span> in de buurt</li>
-						</ul>
-					</div>
-					<div class="maps">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2444.4352076715277!2d4.6392671835289905!3d52.217310493984755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5dcd1d439606f%3A0x9379ec9a5c8646e6!2sSpeenkruid%2C+2377+DS+Oude+Wetering!5e0!3m2!1sen!2snl!4v1510379715779" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
-					</div>
-				</div>
+			<div id="map"></div>
+			
+			<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+			<script type="text/javascript">
+				var map, geocoder, placesService, addressMarker, distanceService, infoWindow;
 				
-				<div class="item">
-					<div class="imgHolder">
-						<img src="https://images.unsplash.com/photo-1473339478549-efdcad0e752c?auto=format&fit=crop&w=1353&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D">
-					</div>
-					<div class="content">
-						<div class="rating">
-							<span> dit thuis past </span>
-							<span class="lnr lnr-star"></span><span class="lnr lnr-star"></span><span class="lnr lnr-star"></span><span class="lnr lnr-half"></span><span class="lnr lnr-star-empty"></span>
-							<span> goed bij u!</span>
-						</div>
-						<h3 class="title">
-							1056 VA, 42-1
-						</h3>
-						<ul>
-							<li>8 <span class="highlight">scholen</span> in de buurt</li>
-							<li>6 <span class="highlight">kerken</span> in de buurt</li>
-							<li>3 <span class="highlight">station</span> in de buurt</li>
-							<li class="warning">15 <span class="highlight">cafe's</span> in de buurt</li>
-						</ul>
-					</div>
-					<div class="maps">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.8915042995386!2d4.854785051758432!3d52.37238727968724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5e27214846e77%3A0x13d8da2e891e62a6!2sPieter+van+der+Doesstraat+13-1%2C+1056+VA+Amsterdam!5e0!3m2!1sen!2snl!4v1510379813826" frameborder="0" style="border:0" allowfullscreen></iframe>
-					</div>
-				</div>
+				var types = [
+					"bakery",
+					"bank",
+					"book_store",
+					"bus_station",
+					"cafe",
+					"church",
+					"clothing_store",
+					"dentist",
+					"doctor",
+					"gas_station",
+					"gym",
+					"pharmacy",
+					"restaurant",
+					"school",
+					"supermarket",
+					"university"
+				];
 				
-				<div class="item last">
-					<div class="imgHolder">
-						<img src="https://images.unsplash.com/photo-1490197415175-074fd86b1fcc?auto=format&fit=crop&w=1353&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D">
-					</div>
-					<div class="content">
-						<div class="rating">
-							<span> dit thuis past </span>
-							<span class="lnr lnr-star"></span><span class="lnr lnr-star"></span><span class="lnr lnr-star"></span><span class="lnr lnr-star"></span><span class="lnr lnr-star-empty"></span>
-							<span> goed bij u!</span>
-						</div>
-						<h3 class="title">
-							7313 AS, 38
-						</h3>
-						<ul>
-							<li>3 <span class="highlight">scholen</span> in de buurt</li>
-							<li>2 <span class="highlight">kerken</span> in de buurt</li>
-							<li class="warning">geen <span class="highlight">station</span> in de buurt</li>
-							<li class="warning">1 <span class="highlight">cafe's</span> in de buurt</li>
-						</ul>
-					</div>
-					<div class="maps">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2444.246404092967!2d5.931066451754108!3d52.2207409796593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c7c7f2fbf7c5d1%3A0x15daa1b194cc60f4!2s2e+Beukenlaan+38-40%2C+7313+AS+Apeldoorn!5e0!3m2!1sen!2snl!4v1510379877974" frameborder="0" style="border:0" allowfullscreen></iframe>
-					</div>
-				</div>
-			</div>
+				function createMarker(place) {
+					var marker = new google.maps.Marker({
+						map: map,
+						position: place.geometry.location,
+						title: place.name,
+//            icon: place.icon
+					});
+					
+					google.maps.event.addListener(marker, 'click', function() {
+						console.log(place);
+						infoWindow.setContent(place.name);
+						infoWindow.open(map, this);
+					});
+				}
+				
+				function getPlacesNear(position) {
+					placesService.nearbySearch(
+						{
+							location: position,
+//                radius: 5 * 1000,
+							types: types,
+							rankBy: google.maps.places.RankBy.DISTANCE
+						}, function (places, status) {
+							if (status === google.maps.places.PlacesServiceStatus.OK) {
+								var destinations = [];
+								for (var i = 0; i < places.length; i++) {
+//                        createMarker(results[i]);
+									destinations.push(places[i].geometry.location);
+								}
+								distanceService.getDistanceMatrix(
+									{
+										origins: [position],
+										destinations: destinations,
+										travelMode: google.maps.TravelMode.WALKING
+									},
+									function (results, status) {
+										if (status === google.maps.DistanceMatrixStatus.OK) {
+											var closest = {};
+
+//                                console.log(results);
+											for (var i = 0; i < places.length; i++) {
+												var d = results.rows[0].elements[i].distance;
+												
+												if (places[i].types.indexOf("book_store") !== -1) {
+													console.log(places[i], d);
+												}
+												
+												var placeIndex = -1;
+												for (var j = 0; j < places[i].types.length && placeIndex === -1; j += 1) {
+													placeIndex = types.indexOf(places[i].types[j]);
+												}
+												
+												if (placeIndex === -1) {
+													continue;
+												}
+												
+												if (!closest[types[placeIndex]] || d.value < closest[types[placeIndex]].distance.value) {
+													closest[types[placeIndex]] = {
+														distance: d,
+														place: places[i]
+													};
+												}
+											}
+											
+											for (var k in closest) {
+												console.log(k, closest[k].place.name, closest[k].distance.text);
+											}
+										}
+									}
+								);
+							}
+						}
+					);
+				}
+				
+				function updateAddress(address) {
+					geocoder.geocode({ "address": address }, function (results, status) {
+						if (status === google.maps.GeocoderStatus.OK) {
+//                if (addressMarker) {
+//                    addressMarker.remove();
+//                }
+							addressMarker = new google.maps.Marker({
+								map: map,
+								position: results[0].geometry.location,
+								title: "Jouw Nieuwe Huis"
+							});
+							
+							map.setCenter(results[0].geometry.location);
+							map.setZoom(11);
+							
+							getPlacesNear(results[0].geometry.location)
+						} else {
+							console.error("Unable to GeoCode " + store.address + " " + status);
+						}
+					});
+					
+				}
+				
+				function initMap() {
+					map = new google.maps.Map(document.getElementById("map"),
+						{ center: new google.maps.LatLng(52, 5), zoom: 7 }
+					);
+					geocoder = new google.maps.Geocoder();
+					placesService = new google.maps.places.PlacesService(map);
+					distanceService = new google.maps.DistanceMatrixService(map);
+					infoWindow = new google.maps.InfoWindow();
+				}
+				
+				window.addEventListener("DOMContentLoaded", function () {
+					var address = document.getElementById("address");
+					address.addEventListener("change", function () {
+						updateAddress(this.value);
+					});
+					address.addEventListener("keyup", function (e) {
+						if (e.keyCode === 13) {
+							updateAddress(this.value);
+						}
+					});
+					updateAddress(address.value);
+				});
+			</script>
+			
+			<script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initMap&key=AIzaSyBam1_2VvNzbCwey6s1DlURD89EHpUcn2k" type="text/javascript"></script>
+			
+			
+			<dl class="row">
+				<dt class="col-sm-3">Vraagprijs</dt>
+				<dd class="col-sm-9">€ 399.000 k.k.</dd>
+				
+				<dt class="col-sm-3">woonhuisHerenhuis</dt>
+				<dd class="col-sm-9">
+					<p>Herenhuis</p>
+					<p>Woonoppervlak 150 m²</p>
+					<p>Overige inpandige ruimte 24 m²</p>
+					<p>Gebouwgebonden buitenruimte 3 m²</p>
+					<p>Externe bergruimte 34 m²</p>
+					<p>Perceeloppervlakte 1.215 m²</p>
+					<p>Inhoud 560 m³</p>
+				</dd>
+				
+				<dt class="col-sm-3">Aantal kamers</dt>
+				<dd class="col-sm-9"><p>5 kamers (4 slaapkamers) </p>
+					<p>Aantal badkamers</p>
+					<p>1 apart toilet </p>
+					<p>2 woonlagen en een zolder </p>
+					<p>Buitenzonwering, TV kabel en rookkanaal
+						Energie</p></dd>
+				
+				<dt class="col-sm-3 text-truncate">Ligging</dt>
+				<dd class="col-sm-9"><p>Aan bosrand, aan rustige weg en in bosrijke omgeving TuinTuin rondom en zonneterras</p>
+					<p>Garage</p>
+					<p>Openbaar parkeren</p></dd>
+			</dl>
+			
+			
+			
 		</div>
 	</div>
 </div>

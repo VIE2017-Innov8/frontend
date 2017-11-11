@@ -143,3 +143,11 @@ $(".rightIcon").click(function(){
 		$(this).parent(".select").addClass("positive");
 	}
 });
+
+$("#inputState").blur(function(){
+	$(".results .item").not('.last').hide();
+});
+
+$(function () {
+	$('[data-toggle="tooltip"]').tooltip()
+})

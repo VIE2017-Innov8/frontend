@@ -346,6 +346,11 @@ $trans: .15s ease-in-out;
 				border-bottom: 0px;
 			}
 			
+			a {
+				text-decoration: none;
+				color: inherit;
+			}
+			
 			.imgHolder {
 				width: 15%;
 				overflow: hidden;
@@ -398,6 +403,105 @@ $trans: .15s ease-in-out;
 				iframe {
 					width: 100%;
 					height: 200px;
+				}
+			}
+		}
+	}
+}
+
+.detailPage {
+	margin-bottom: 0px;
+	padding-bottom: 30px;
+	padding-top: 30px;
+	
+	h2 {
+		margin-bottom: 0px !important;
+	}
+}
+
+header {
+	margin-bottom: 60px;
+	
+	.imgHolderHeader {
+		height:250px;
+		overflow: hidden;
+		position: relative;
+		
+		img {
+			width: 100%;
+			height: auto;
+			position: absolute;
+			top: 50%;
+			transform: translatey(-50%);
+		}
+	}
+}
+.detail {
+	p {
+		display: block;
+	};
+	
+	.keurBtn {
+		background: $green;
+		border-bottom: 3px solid rgba(0,0,0,.75);
+		border-radius: 5px;
+		height: 45px;
+		line-height: 45px;
+		text-align: center;
+		width: 100%;
+		color: #fff;
+		display: block;
+		position: relative;
+		margin-bottom: 45px;
+		transition: border-bottom-width $trans, height $trans;
+		
+		&:hover {
+			border-bottom-width: 1px;
+			height: 43px;
+			text-decoration: none;
+		}
+	}
+	
+	ul {
+		padding-left: 0px;
+		
+		li {
+			list-style: none;
+			
+			&.warning {
+				&:before {
+					color: $red;
+				}
+			}
+			
+			&:before {
+				content: "\E87F";
+				font-family: linearicons-free;
+				margin-right: 15px;
+				color: $green;
+			}
+		}
+	}
+	
+	.highlight {
+		color: $orange;
+	}
+	
+	.makelaars {
+		padding: 15px;
+		
+		li {
+			list-style-type: disc;
+			
+			&:before {
+				display: none;
+			}
+			
+			&.advised {
+				color: $orange;
+				
+				a {
+					color: $orange;
 				}
 			}
 		}
