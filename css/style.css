@@ -1,0 +1,55 @@
+.mainWrapper {
+  background: #071930;
+  color: #fff;
+  font-family: 'Source Sans Pro', sans-serif; }
+  .mainWrapper .progress {
+    background: #023852; }
+    .mainWrapper .progress .progress-bar {
+      background: #03A694; }
+  .mainWrapper header {
+    height: 38vh;
+    background: #851934;
+    text-align: center;
+    display: block;
+    position: relative; }
+    .mainWrapper header h1 {
+      position: absolute;
+      top: 50%;
+      transform: translatey(-50%);
+      width: 100%;
+      padding: 4rem; }
+  .mainWrapper section {
+    height: 62vh; }
+    .mainWrapper section .answerGroup {
+      height: 100%; }
+      .mainWrapper section .answerGroup .answer {
+        display: block;
+        position: relative;
+        vertical-align: middle;
+        text-align: center;
+        height: 100%;
+        overflow: hidden; }
+        .mainWrapper section .answerGroup .answer:before {
+          position: absolute;
+          content: "";
+          display: block;
+          opacity: 0;
+          background: #023852;
+          height: 100%;
+          width: 100%;
+          transform: rotate(5deg) scale(0.8);
+          transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out; }
+        .mainWrapper section .answerGroup .answer:hover:before {
+          opacity: 1;
+          transform: rotate(0deg) scale(1); }
+        .mainWrapper section .answerGroup .answer.clicked:before:before {
+          opacity: 1;
+          transform: rotate(0deg) scale(1); }
+        .mainWrapper section .answerGroup .answer h2 {
+          position: absolute;
+          top: 50%;
+          transform: translatey(-50%);
+          width: 100%;
+          padding: 4rem; }
+
+/*# sourceMappingURL=style.css.map */
