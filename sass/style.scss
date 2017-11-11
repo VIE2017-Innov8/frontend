@@ -169,8 +169,10 @@ $trans: .15s ease-in-out;
 	
 	.submitBtn {
 		position: absolute;
-		right: 10%;
-		bottom: 10%;
+		right: 20px;
+		bottom: 20px;
+		transform: translatex(-100%);
+		z-index: 99;
 		
 		a {
 			line-height: 45px;
@@ -462,11 +464,10 @@ header {
 		display: block;
 		position: relative;
 		margin-bottom: 45px;
-		transition: border-bottom-width $trans, height $trans;
+		transition: transform $trans;
 		
 		&:hover {
-			border-bottom-width: 1px;
-			height: 43px;
+			transform: scale(1.1);
 			text-decoration: none;
 		}
 	}

@@ -104,8 +104,10 @@
     background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%); }
   .selectionWrapper .submitBtn {
     position: absolute;
-    right: 10%;
-    bottom: 10%; }
+    right: 20px;
+    bottom: 20px;
+    transform: translatex(-100%);
+    z-index: 99; }
     .selectionWrapper .submitBtn a {
       line-height: 45px;
       height: 45px;
@@ -295,10 +297,9 @@ header {
   display: block;
   position: relative;
   margin-bottom: 45px;
-  transition: border-bottom-width 0.15s ease-in-out, height 0.15s ease-in-out; }
+  transition: transform 0.15s ease-in-out; }
   .detail .keurBtn:hover {
-    border-bottom-width: 1px;
-    height: 43px;
+    transform: scale(1.1);
     text-decoration: none; }
 .detail ul {
   padding-left: 0px; }

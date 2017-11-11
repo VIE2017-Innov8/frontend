@@ -1,35 +1,82 @@
-
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>VIE 2017</title>
-		<meta charset="UTF-8">
-		
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		
-		<!-- ADD THIS TO LOCAL ASSETS! -->
-		<script src="https://use.fontawesome.com/0248ab9fbf.js"></script>
-		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-		<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-		<link rel="stylesheet" href="css/intro.css">
-		<link rel="stylesheet" href="css/style.css">
-		
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-		<link rel="stylesheet" href="/resources/demos/style.css">
-		
-		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" rel="stylesheet">
-		
-	</head>
-	<body>
+<html lang="nl">
+
+<head>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<title>Toolset</title>
+	
+	<!-- Custom styles for this template -->
+	<style>
+		body {
+			padding-top: 54px;
+		}
+		@media (min-width: 992px) {
+			body {
+				padding-top: 56px;
+			}
+		}
+	
+	</style>
+	
+	
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+
+
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+	<div class="container">
+		<a class="navbar-brand" href="#">Under a Roof</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item ">
+					<a class="nav-link" href="home.html">Home
+						<span class="sr-only">(current)</span>
+					</a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="profile.html">profile</a>
+					<span class="sr-only">(current)</span>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Contact</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+	
+	<!-- Page Content -->
+	<div class="row selectionWrapper selectionSocial detailPage">
+		<div class="container selectionGroup">
+			<h2 class=" text-center">
+				Profile
+			</h2>
+		</div>
+	</div>
 		<div class="container"><br/>
-			<h1>Profiel</h1>
 			<div class="row">
 				<div class="col">
 					Gezinstype:<br/>
-					<a href="#"><img src="images/familyType.png" width="100%" /></a>
+					<a href="#"><img src="img/familyType.png" width="100%" /></a>
 					<br/>
 				</div>
 			</div>
@@ -38,16 +85,16 @@
 				<div class="col-md-6">
 					<br/>
 					<h3>Favoriete huizen</h3><br/>
-					<a href="#"><img src="images/huizen.jpg" width="813" /></a>
+					<a href="#"><img src="img/huizen.jpg" width="813" /></a>
 					<br/>
 					<a href="whatsapp://send?text=Ik vind dit huis mooi!" data-action="share/whatsapp/share">
-						<img src="images/WhatsApp.png" width="30" /> Delen via Whatsapp</a>
+						<img src="img/WhatsApp.png" width="30" /> Delen via Whatsapp</a>
 				</div>
 				
 				<div class="col-md-6">
 					<br/><h3>Feedback van vrienden en familie</h3>
 					<br/>Moeder over <a href="#">http://funda.nl/...</a><br/>
-					<img src="images/whatsappReacties.png" width="300" style="margin-top:5px;"/>
+					<img src="img/whatsappReacties.png" width="300" style="margin-top:5px;"/>
 				</div>
 			
 			</div>
@@ -58,9 +105,6 @@
 					
 
 <div class="row selectionWrapper selectionSocial">
-	<div class="submitBtn"><br/>
-		<br/><a href="result.html" style="margin-bottom:-20px">submit</a>
-	</div>
 	<div class="container selectionGroup">
 		<h2 class=" text-center">
 			Social filters
@@ -247,10 +291,16 @@
 		</div>
 	</div>
 </div>
+	
+	
+	
+	<!-- SCRIPTS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+	
+	
+	<script src="js/functions.js"></script>
+</body>
 
-		
-		
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		
-	</body>
 </html>
