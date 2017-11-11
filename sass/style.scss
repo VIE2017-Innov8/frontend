@@ -22,18 +22,60 @@ $trans: .15s ease-in-out;
 	}
 	
 	header {
-		height: 38vh;
+		height: calc(38vh - 1rem);
 		background: $red;
 		text-align: center;
 		display: block;
 		position: relative;
 		
-		h1 {
-			position: absolute;;
+		.goPrevious, .goNext {
+			position: absolute;
 			top: 50%;
-			transform: translatey(-50%);
-			width: 100%;
-			padding: 4rem;
+			transform: translateY(-50%);
+			fill: $orange;
+			z-index: 2;
+			transition: transform $trans;
+			cursor: pointer;
+			
+			&:hover {
+				transform: scale(1.2) translateY(-50%);
+			}
+			
+			&.off {
+				opacity: .2;
+				cursor: initial;
+				
+				&:hover {
+					transform: scale(1) translateY(-50%);
+				}
+			}
+			
+			.lnr {
+				font-size: 2rem;
+			}
+		}
+		
+		.goPrevious {
+			left: 4rem;
+		}
+		
+		.goNext {
+			right: 4rem;
+		}
+		
+		.question {
+			z-index: 1;
+			
+			h1 {
+				position: absolute;;
+				top: 50%;
+				transform: translatey(-50%);
+				width: 100%;
+				padding: 8rem;
+				font-weight: 600;
+				letter-spacing: 1.5;
+			}
+			
 		}
 	}
 	
@@ -72,10 +114,8 @@ $trans: .15s ease-in-out;
 				
 				&.clicked {
 					&:before {
-						&:before {
-							opacity: 1;
-							transform: rotate(0deg) scale(1);
-						}
+						opacity: 1;
+						transform: rotate(0deg) scale(1);
 					}
 				}
 				

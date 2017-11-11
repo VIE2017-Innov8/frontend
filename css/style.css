@@ -7,17 +7,42 @@
     .mainWrapper .progress .progress-bar {
       background: #03A694; }
   .mainWrapper header {
-    height: 38vh;
+    height: calc(38vh - 1rem);
     background: #851934;
     text-align: center;
     display: block;
     position: relative; }
-    .mainWrapper header h1 {
+    .mainWrapper header .goPrevious, .mainWrapper header .goNext {
       position: absolute;
       top: 50%;
-      transform: translatey(-50%);
-      width: 100%;
-      padding: 4rem; }
+      transform: translateY(-50%);
+      fill: #F24738;
+      z-index: 2;
+      transition: transform 0.15s ease-in-out;
+      cursor: pointer; }
+      .mainWrapper header .goPrevious:hover, .mainWrapper header .goNext:hover {
+        transform: scale(1.2) translateY(-50%); }
+      .mainWrapper header .goPrevious.off, .mainWrapper header .goNext.off {
+        opacity: .2;
+        cursor: initial; }
+        .mainWrapper header .goPrevious.off:hover, .mainWrapper header .goNext.off:hover {
+          transform: scale(1) translateY(-50%); }
+      .mainWrapper header .goPrevious .lnr, .mainWrapper header .goNext .lnr {
+        font-size: 2rem; }
+    .mainWrapper header .goPrevious {
+      left: 4rem; }
+    .mainWrapper header .goNext {
+      right: 4rem; }
+    .mainWrapper header .question {
+      z-index: 1; }
+      .mainWrapper header .question h1 {
+        position: absolute;
+        top: 50%;
+        transform: translatey(-50%);
+        width: 100%;
+        padding: 8rem;
+        font-weight: 600;
+        letter-spacing: 1.5; }
   .mainWrapper section {
     height: 62vh; }
     .mainWrapper section .answerGroup {
@@ -42,7 +67,7 @@
         .mainWrapper section .answerGroup .answer:hover:before {
           opacity: 1;
           transform: rotate(0deg) scale(1); }
-        .mainWrapper section .answerGroup .answer.clicked:before:before {
+        .mainWrapper section .answerGroup .answer.clicked:before {
           opacity: 1;
           transform: rotate(0deg) scale(1); }
         .mainWrapper section .answerGroup .answer h2 {
