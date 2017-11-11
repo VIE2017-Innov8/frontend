@@ -378,7 +378,11 @@ $trans: .15s ease-in-out;
 						
 						&.warning {
 							&:before {
-								color: $red;
+								color: $orange;
+							}
+							
+							.highlight {
+								color: $orange;
 							}
 						}
 						
@@ -392,7 +396,7 @@ $trans: .15s ease-in-out;
 				}
 				
 				.highlight {
-					color: $orange;
+					color: $green;
 				}
 			}
 			
@@ -439,7 +443,12 @@ header {
 .detail {
 	p {
 		display: block;
-	};
+	}
+	
+	.whatsappShare {
+		color: $green;
+		text-decoration: none;
+	}
 	
 	.keurBtn {
 		background: $green;
@@ -470,7 +479,11 @@ header {
 			
 			&.warning {
 				&:before {
-					color: $red;
+					color: $orange;
+				}
+				
+				.highlight {
+					color: $orange;
 				}
 			}
 			
@@ -484,7 +497,7 @@ header {
 	}
 	
 	.highlight {
-		color: $orange;
+		color: $green;
 	}
 	
 	.makelaars {
