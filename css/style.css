@@ -1,7 +1,8 @@
 .mainWrapper {
   background: #071930;
   color: #fff;
-  font-family: 'Source Sans Pro', sans-serif; }
+  font-family: 'Source Sans Pro', sans-serif;
+  min-height: 100vh; }
   .mainWrapper .progress {
     background: #023852; }
     .mainWrapper .progress .progress-bar {
@@ -43,34 +44,40 @@
         padding: 8rem;
         font-weight: 600;
         letter-spacing: 1.5; }
-  .mainWrapper section {
-    height: 62vh; }
-    .mainWrapper section .answerGroup {
+  .mainWrapper .input {
+    height: 62vh;
+    transform: scale(0.8);
+    display: none;
+    transition: transform 0.15s ease-in-out; }
+    .mainWrapper .input.active {
+      transform: scale(1); }
+    .mainWrapper .input .answerGroup {
       height: 100%; }
-      .mainWrapper section .answerGroup .answer {
+      .mainWrapper .input .answerGroup .answer {
         display: block;
         position: relative;
         vertical-align: middle;
         text-align: center;
         height: 100%;
         overflow: hidden; }
-        .mainWrapper section .answerGroup .answer:before {
+        .mainWrapper .input .answerGroup .answer:before {
           position: absolute;
+          background: #023852;
           content: "";
           display: block;
           opacity: 0;
-          background: #023852;
           height: 100%;
           width: 100%;
           transform: rotate(5deg) scale(0.8);
-          transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out; }
-        .mainWrapper section .answerGroup .answer:hover:before {
+          transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out, background 0.15s ease-in-out; }
+        .mainWrapper .input .answerGroup .answer:hover:before {
           opacity: 1;
           transform: rotate(0deg) scale(1); }
-        .mainWrapper section .answerGroup .answer.clicked:before {
+        .mainWrapper .input .answerGroup .answer.active:before {
+          background: #03A694;
           opacity: 1;
           transform: rotate(0deg) scale(1); }
-        .mainWrapper section .answerGroup .answer h2 {
+        .mainWrapper .input .answerGroup .answer h2 {
           position: absolute;
           top: 50%;
           transform: translatey(-50%);

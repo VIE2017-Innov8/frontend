@@ -12,6 +12,7 @@ $trans: .15s ease-in-out;
 	background: $darkBlue;
 	color: #fff;
 	font-family: 'Source Sans Pro', sans-serif;
+	min-height: 100vh;
 	
 	.progress {
 		background: $blue;
@@ -75,12 +76,18 @@ $trans: .15s ease-in-out;
 				font-weight: 600;
 				letter-spacing: 1.5;
 			}
-			
 		}
 	}
 	
-	section {
+	.input {
 		height: 62vh;
+		transform: scale(.8);
+		display: none;
+		transition: transform $trans;
+		
+		&.active {
+			transform: scale(1);
+		}
 		
 		.answerGroup {
 			height: 100%;
@@ -94,15 +101,15 @@ $trans: .15s ease-in-out;
 				overflow: hidden;
 				
 				&:before {
-					position: absolute;;
+					position: absolute;
+					background: $blue;
 					content: "";
 					display: block;
 					opacity: 0;
-					background: $blue;
 					height:100%;
 					width: 100%;
 					transform: rotate(5deg) scale(.80);
-					transition: transform $trans, opacity $trans;
+					transition: transform $trans, opacity $trans, background $trans;
 				}
 				
 				&:hover {
@@ -112,8 +119,9 @@ $trans: .15s ease-in-out;
 					}
 				}
 				
-				&.clicked {
+				&.active {
 					&:before {
+						background: $green;
 						opacity: 1;
 						transform: rotate(0deg) scale(1);
 					}

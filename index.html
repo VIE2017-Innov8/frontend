@@ -6,7 +6,7 @@
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 	
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
 	
 	<link rel="stylesheet" href="css/style.css">
@@ -14,16 +14,16 @@
 <body>
 	<div class="mainWrapper">
 		<div class="progress">
-			<div class="progress-bar" role="progressbar" style="width: 10%" aria-valuenow="10"  aria-valuemin="0" aria-valuemax="100"></div>
+			<div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"  aria-valuemin="0" aria-valuemax="100"></div>
 		</div>
 		<header>
-			<span class="goPrevious off"><span class="lnr lnr-chevron-left"></span></span>
+			<span class="goPrevious off" data-previous="0"><span class="lnr lnr-chevron-left"></span></span>
 			<div class="question">
-				<h1>Vraag 1: welk huis wil je kopen?</h1>
+				<h1></h1>
 			</div>
-			<span class="goNext"><span class="lnr lnr-chevron-right"></span></span>
+			<span class="goNext" data-next="2"><span class="lnr lnr-chevron-right"></span></span>
 		</header>
-		<section class="input" data-number="1" data-question="welk huis wil je kopen?">
+		<section class="input " data-number="1" data-question="welk huis wil je kopen?">
 			<div class="row answerGroup">
 				<div class="col-sm answer" data-value="home">
 					<h2>Huis</h2>
@@ -40,9 +40,44 @@
 			</div>
 		</section>
 		
+		<section class="input " data-number="2" data-question="Budget?">
+			<div class="row answerGroup">
+				<div class="col-sm answer" data-value="home">
+					<h2><100.000</h2>
+				</div>
+				<div class="col-sm answer" data-value="Appartment">
+					<h2>100.001 - 250.000</h2>
+				</div>
+				<div class="col-sm answer" data-value="villa">
+					<h2>250.001 - 300.000</h2>
+				</div>
+				<div class="col-sm answer" data-value="villa">
+					<h2>300.001 - 400.000</h2>
+				</div>
+				<div class="col-sm answer" data-value="twoInOne">
+					<h2>400.001+</h2>
+				</div>
+			</div>
+		</section>
+		
+		<section class="input " data-number="3" data-question="Leeftijd">
+			<div class="row answerGroup">
+				<div class="col-sm answer" data-value="home">
+					<h2><23</h2>
+				</div>
+				<div class="col-sm answer" data-value="Appartment">
+					<h2>24-40</h2>
+				</div>
+				<div class="col-sm answer" data-value="villa">
+					<h2>40+</h2>
+				</div>
+			</div>
+		</section>
+		
+		
 		<form class="hiddenForm" method="post" enctype="multipart/form-data" action="">
 			<input type="text" hidden name="1" value="">
-			<submit>
+			<input type="submit" value="submit">
 		</form>
 	</div>
 	
