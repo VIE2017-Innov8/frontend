@@ -2,14 +2,14 @@
 <html lang="nl">
 
 <head>
-	
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	
+
 	<title>Toolset</title>
-	
+
 	<!-- Custom styles for this template -->
 	<style>
 		body {
@@ -20,16 +20,16 @@
 				padding-top: 56px;
 			}
 		}
-	
+
 	</style>
-	
-	
-	
+
+
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-	
+
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-	
+
 	<link rel="stylesheet" href="css/style.css">
 	<style type="text/css">
 		#map { width:100%; height: 250px; margin-bottom:25px; }
@@ -91,7 +91,7 @@
 				<li>3 <span class="highlight">station</span> in de buurt</li>
 				<li class="warning">15 <span class="highlight">cafe's</span> in de buurt</li>
 			</ul>
-			
+
 			<h3>Wij adviseren dit huis voor u</h3>
 			<h6 class="warning">Dit is nog niet gekeurd</h6>
 			<p>
@@ -114,11 +114,11 @@
 		</div>
 		<div class="col-9 results">
 			<div id="map"></div>
-			
+
 			<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 			<script type="text/javascript">
-				var map, geocoder, placesService, addressMarker, distanceService, infoWindow;
-				
+				var map, geocoder, placesService, addressMarker, infoWindow;
+
 				var types = [
 					"bakery",
 					"bank",
@@ -137,136 +137,74 @@
 					"supermarket",
 					"university"
 				];
-				
+
 				function createMarker(place) {
 					var marker = new google.maps.Marker({
 						map: map,
 						position: place.geometry.location,
-						title: place.name,
-//            icon: place.icon
+						title: place.name
 					});
-					
+
 					google.maps.event.addListener(marker, 'click', function() {
-						console.log(place);
 						infoWindow.setContent(place.name);
 						infoWindow.open(map, this);
 					});
 				}
-				
+
 				function getPlacesNear(position) {
 					placesService.nearbySearch(
 						{
 							location: position,
-//                radius: 5 * 1000,
 							types: types,
 							rankBy: google.maps.places.RankBy.DISTANCE
 						}, function (places, status) {
 							if (status === google.maps.places.PlacesServiceStatus.OK) {
-								var destinations = [];
 								for (var i = 0; i < places.length; i++) {
-//                        createMarker(results[i]);
-									destinations.push(places[i].geometry.location);
+                  createMarker(places[i]);
 								}
-								distanceService.getDistanceMatrix(
-									{
-										origins: [position],
-										destinations: destinations,
-										travelMode: google.maps.TravelMode.WALKING
-									},
-									function (results, status) {
-										if (status === google.maps.DistanceMatrixStatus.OK) {
-											var closest = {};
-
-//                                console.log(results);
-											for (var i = 0; i < places.length; i++) {
-												var d = results.rows[0].elements[i].distance;
-												
-												if (places[i].types.indexOf("book_store") !== -1) {
-													console.log(places[i], d);
-												}
-												
-												var placeIndex = -1;
-												for (var j = 0; j < places[i].types.length && placeIndex === -1; j += 1) {
-													placeIndex = types.indexOf(places[i].types[j]);
-												}
-												
-												if (placeIndex === -1) {
-													continue;
-												}
-												
-												if (!closest[types[placeIndex]] || d.value < closest[types[placeIndex]].distance.value) {
-													closest[types[placeIndex]] = {
-														distance: d,
-														place: places[i]
-													};
-												}
-											}
-											
-											for (var k in closest) {
-												console.log(k, closest[k].place.name, closest[k].distance.text);
-											}
-										}
-									}
-								);
 							}
 						}
 					);
 				}
-				
+
 				function updateAddress(address) {
 					geocoder.geocode({ "address": address }, function (results, status) {
 						if (status === google.maps.GeocoderStatus.OK) {
-//                if (addressMarker) {
-//                    addressMarker.remove();
-//                }
 							addressMarker = new google.maps.Marker({
 								map: map,
 								position: results[0].geometry.location,
 								title: "Jouw Nieuwe Huis"
 							});
-							
+
 							map.setCenter(results[0].geometry.location);
-							map.setZoom(11);
-							
+							map.setZoom(13);
+
 							getPlacesNear(results[0].geometry.location)
 						} else {
 							console.error("Unable to GeoCode " + store.address + " " + status);
 						}
 					});
-					
+
 				}
-				
+
 				function initMap() {
 					map = new google.maps.Map(document.getElementById("map"),
 						{ center: new google.maps.LatLng(52, 5), zoom: 7 }
 					);
 					geocoder = new google.maps.Geocoder();
 					placesService = new google.maps.places.PlacesService(map);
-					distanceService = new google.maps.DistanceMatrixService(map);
 					infoWindow = new google.maps.InfoWindow();
+					updateAddress("Oude Wetering");
 				}
-				
-				window.addEventListener("DOMContentLoaded", function () {
-					var address = document.getElementById("address");
-					address.addEventListener("change", function () {
-						updateAddress(this.value);
-					});
-					address.addEventListener("keyup", function (e) {
-						if (e.keyCode === 13) {
-							updateAddress(this.value);
-						}
-					});
-					updateAddress(address.value);
-				});
 			</script>
-			
+
 			<script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initMap&key=AIzaSyBam1_2VvNzbCwey6s1DlURD89EHpUcn2k" type="text/javascript"></script>
-			
-			
+
+
 			<dl class="row">
 				<dt class="col-sm-3">Vraagprijs</dt>
 				<dd class="col-sm-9">€ 399.000 k.k.</dd>
-				
+
 				<dt class="col-sm-3">woonhuisHerenhuis</dt>
 				<dd class="col-sm-9">
 					<p>Herenhuis</p>
@@ -277,7 +215,7 @@
 					<p>Perceeloppervlakte 1.215 m²</p>
 					<p>Inhoud 560 m³</p>
 				</dd>
-				
+
 				<dt class="col-sm-3">Aantal kamers</dt>
 				<dd class="col-sm-9"><p>5 kamers (4 slaapkamers) </p>
 					<p>Aantal badkamers</p>
@@ -285,15 +223,15 @@
 					<p>2 woonlagen en een zolder </p>
 					<p>Buitenzonwering, TV kabel en rookkanaal
 						Energie</p></dd>
-				
+
 				<dt class="col-sm-3 text-truncate">Ligging</dt>
 				<dd class="col-sm-9"><p>Aan bosrand, aan rustige weg en in bosrijke omgeving TuinTuin rondom en zonneterras</p>
 					<p>Garage</p>
 					<p>Openbaar parkeren</p></dd>
 			</dl>
-			
-			
-			
+
+
+
 		</div>
 	</div>
 </div>
